@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <input placeholder="Digite o cep" onChange={evento => setEndereco({cep: evento.target.value})}/>
+        <input placeholder="Digite o cep" onChange={manipulaEndereço}/>
       <ul>
         <li>CEP: {endereco.cep}</li>
       </ul>
