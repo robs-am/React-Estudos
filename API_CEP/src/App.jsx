@@ -2,13 +2,19 @@ import { useState } from "react";
 
 import "./App.css";
 
-const [cep, setCep] = useState("");
+
 
 function App() {
+
+  const [endereco, setEndereco] = useState({});
+
   return (
     <div className="App">
       <header className="App-header">
-        <input placeholder="Digite o cep" onChange={evento => setCep(evento.target.value)}/>
+        <input placeholder="Digite o cep" onChange={evento => setEndereco({cep: evento.target.value})}/>
+      <ul>
+        <li>CEP: {endereco.cep}</li>
+      </ul>
       </header>
     </div>
   );
