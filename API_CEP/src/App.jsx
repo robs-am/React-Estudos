@@ -14,7 +14,19 @@ function App() {
         cep: evento.target.value
       })
         if (endereco.cep && endereco.cep.length === 8) { // se endereço existir (&&) e tiver o tamanho(length) = 8
-          fetch('https://viacep.com.br/ws/01001000/json/')
+          fetch(`https://viacep.com.br/ws/${endereco.cep}/json/`) //retiramos o cep dos correios e substituimos por template string
+          .then(resposta => resposta.json()) //se a promessa der certo, teremos a resposta em json
+          .then(dados => {
+            setEndereco(dados{
+              "rua": dados.logradouro,
+              "bairro": dados.bairro,
+              "cidade": dados.localidade,
+              "estado":dados.uf,
+
+            }
+
+            );
+          })
         }
     }
 
